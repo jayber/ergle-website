@@ -1,0 +1,40 @@
+@(page: String)
+<!DOCTYPE html>
+<html>
+    <head>
+
+        <link rel="shortcut icon" href="/assets/images/favicon.png" type="image/png" />
+
+        <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/reset.css")">
+        <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/main.css")">
+        @*<script src="@routes.Assets.at("javascripts/jquery-1.9.0.min.js")" type="text/javascript"></script>*@
+        <title>Ergle</title>
+    </head>
+
+    <body>
+
+        <header>
+            <div class="body">
+                <nav>
+                    <ul class="tabs">
+                        <li class="tab @if(page == "product") {select}"><a href="/">product</a></li>
+                        <li class="tab @if(page == "people") {select}"><a href="/people">people</a></li>
+                    </ul>
+                </nav>
+                <div class="titleBar">ergle</div>
+            </div>
+        </header>
+
+        <div class="body">
+            @if(page == "product") {@product()}
+            @if(page == "people") {@people()}
+        </div>
+
+        <footer>
+            <div class="body">
+                    <div id="copyright">&#169; 2013 Ergle Limited</div>
+                    <div id="socialLink"><a target="_blank" href="https://www.facebook.com/ergleresearch">facebook</a></div>
+            </div>
+        </footer>
+    </body>
+</html>
