@@ -9,3 +9,5 @@ libraryDependencies ++= Seq(
 )     
 
 play.Project.playScalaSettings
+
+packageArchetype.java_application
