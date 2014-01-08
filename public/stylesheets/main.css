@@ -1,3 +1,8 @@
+input::-moz-focus-inner {
+    border: 0;
+    padding: 0
+}
+
 html {
     font-family: "Helvetica Neue Light", arial, sans-serif;
     font-size: 10pt;
@@ -32,17 +37,20 @@ ul {
 .tab {
     text-align: center;
     font-size: 12pt;
-    border-bottom: 4px solid #d5d5d5;
 }
 
 .select {
-    color: #000000;
     border-bottom: 4px solid #999999;
+}
+
+.selectTab {
+    color: #000000;
 }
 
 header a {
     display: block;
     width: 55px;
+    border-bottom: 4px solid #d5d5d5;
 }
 
 header {
@@ -52,8 +60,9 @@ header {
     margin-bottom: 30px;
 }
 
-.titleBar {
+#titleBar {
     clear: both;
+    float: left;
     background: url("/assets/images/just_icon.png") no-repeat scroll;
     background-size: 40px;
     height: 50px;
@@ -63,7 +72,59 @@ header {
     padding-top: 1px;
 }
 
+#signUp {
+    float: right;
+    height: 50px;
+    padding-top: 14px;
+    font-size: 10pt;
+}
+
+#emailField {
+    width: 125px;
+    border: 1px solid #b5b5b5;
+}
+
+#signUp input {
+    border-radius: 1px;
+    padding: 2px 4px;
+    text-align: center;
+}
+
+#submit {
+    margin: 2px;
+    background-color: #ffffff;
+    border: 0;
+}
+
+#submit:hover {
+    cursor: pointer;
+    background-color: #eeeeee;
+}
+
+#submit:active {
+    background-color: #dddddd;
+}
+
+#emailField::-webkit-input-placeholder {
+    color: #aaaaaa;
+}
+
+#emailField :-moz-placeholder {
+    /* Firefox 18- */
+    color: #aaaaaa;
+}
+
+#emailField ::-moz-placeholder {
+    /* Firefox 19+ */
+    color: #aaaaaa;
+}
+
+#emailField:-ms-input-placeholder {
+    color: #aaaaaa;
+}
+
 .body {
+    clear: both;
     max-width: 900px;
     margin: 0 auto;
     padding: 0 5px;

@@ -3,8 +3,10 @@
 # ~~~~
 
 # Home page
-GET        /                    controllers.Application.index(page="product")
-GET        /:page               controllers.Application.index(page)
+GET        /        @controllers.Application.show(page="product")
+GET        /register        @controllers.RegistrationController.register(email)
+GET        /:page        @controllers.Application.show(page)
+
 
 # Map static resources from the /public folder to the /assets URL path
 GET        /assets/*file        controllers.Assets.at(path="/public", file)
