@@ -1,0 +1,1 @@
+/home/ec2-user/mongodb/mongodb-linux-x86_64-2.4.9/bin/mongod --dbpath /home/ec2-user/data 2> /dev/null &
