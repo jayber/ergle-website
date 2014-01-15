@@ -47,7 +47,7 @@ ul {
     color: #000000;
 }
 
-header a {
+nav a {
     display: block;
     width: 55px;
     border-bottom: 4px solid #d5d5d5;
@@ -58,18 +58,23 @@ header {
     border-bottom: 1px solid #D5D5D5;
     height: 65px;
     margin-bottom: 30px;
+    padding-top: 3px;
+}
+
+#titleBar a {
+    display: block;
+    height: 100%;
+    width: 100%;
 }
 
 #titleBar {
+    background: url("/assets/images/title.png") no-repeat scroll;
+    background-size: 100px;
     clear: both;
     float: left;
-    background: url("/assets/images/just_icon.png") no-repeat scroll;
-    background-size: 40px;
     height: 50px;
-    padding-left: 45px;
-    font-size: 26px;
-    color: #999999;
-    padding-top: 1px;
+    width: 100px;
+    margin-top: 3px;
 }
 
 #signUp {
@@ -79,12 +84,7 @@ header {
     font-size: 10pt;
 }
 
-#emailField {
-    width: 125px;
-    border: 1px solid #b5b5b5;
-}
-
-#signUp input {
+input {
     border-radius: 1px;
     padding: 2px 4px;
     text-align: center;
@@ -96,13 +96,22 @@ header {
     border: 0;
 }
 
+#unsubscribe #submit {
+    background-color: #f5f5f5;
+}
+
 #submit:hover {
     cursor: pointer;
-    background-color: #eeeeee;
+    background-color: #eeeeee !important;
 }
 
 #submit:active {
-    background-color: #dddddd;
+    background-color: #dddddd !important;
+}
+
+#emailField {
+    width: 125px;
+    border: 1px solid #b5b5b5;
 }
 
 #emailField::-webkit-input-placeholder {
@@ -161,6 +170,12 @@ p a {
     color: #2cbc4c;
 }
 
+hr {
+    margin: 30px;
+    border: none;
+    border-bottom: 2px solid #D5D5D5;
+}
+
 img {
     display: block;
     margin: 0 auto;
@@ -172,6 +187,10 @@ img {
         float: left;
         display: inline;
         margin: 5px 10px 0 0;
+    }
+
+    img.right {
+        float: right;
     }
 
     html {

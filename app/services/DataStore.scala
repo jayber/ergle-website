@@ -41,6 +41,6 @@ class DataStoreImpl extends DataStore {
   }
 
   def unsubscribe(email: String) {
-    collection.update(Json.obj("email" -> email), Json.obj( """$set""" -> Json.obj("subscribed" -> false)))
+    collection.update(Json.obj("email" -> email), Json.obj("$set" -> Json.obj("subscribed" -> false)))
   }
 }

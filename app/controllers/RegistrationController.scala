@@ -35,16 +35,21 @@ class RegistrationController extends Controller with OKResult {
         })
   }
 
-  def unsubscribe() = Action {
+  def unsubscribe(emailOpt: Option[String]) = Action {
     implicit request =>
 
-      emailForm.bindFromRequest().fold(
-        formWithErrors => {
-          BadRequest(views.html.index(page, views.html.product(), views.html.register()))
-        },
-        userData => {
-          registrationService.unsubscribeEmail(userData)
-          getOK(page, views.html.unsubscribed(userData), Html(""))
-        })
+      emailOpt match {
+        case None =>
+          getOK(page, views.html.unsubscribe(), Html(""))
+        case Some(value) =>
+          emailForm.bindFromRequest().fold(
+            formWithErrors => {
+              BadRequest(views.html.index(page, views.html.unsubscribe(), Html("")))
+            },
+            email => {
+              registrationService.unsubscribeEmail(email)
+              getOK(page, views.html.unsubscribed(email), Html(""))
+            })
+      }
   }
 }

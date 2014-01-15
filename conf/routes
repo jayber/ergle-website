@@ -4,7 +4,7 @@
 
 # Home page
 GET         /        @controllers.Application.show(page="product")
-GET         /unsubscribe        @controllers.RegistrationController.unsubscribe
+GET         /unsubscribe        @controllers.RegistrationController.unsubscribe(email: Option[String])
 POST        /register        @controllers.RegistrationController.register
 GET         /:page        @controllers.Application.show(page)
 

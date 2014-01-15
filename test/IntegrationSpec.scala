@@ -27,7 +27,46 @@ class IntegrationSpec extends Specification {
       browser.pageSource() must contain("email address registered")
     }
 
-    "allow unsubscription" in new WithBrowser {
+    "show unsubscription form" in new WithBrowser {
+
+      browser.goTo(s"http://localhost:$port/unsubscribe")
+
+      val emailField: FluentWebElement = browser.findFirst("#emailField")
+      val signUpButton: FluentWebElement = browser.findFirst("#submit")
+      browser.pageSource() must contain("Please enter email address to unsubscribe") and
+        (emailField must not).beNull and
+        (signUpButton must not).beNull
+    }
+
+    "allow unsubscription from form" in new WithBrowser {
+
+      val email = "test@test.com"
+      browser.goTo(s"http://localhost:$port/unsubscribe")
+
+      val emailField: FluentWebElement = browser.findFirst("#emailField")
+      emailField.text(email)
+      val signUpButton: FluentWebElement = browser.findFirst("#submit")
+      signUpButton.click()
+
+      browser.pageSource() must contain(s"email address $email has been unsubscribed")
+    }
+
+    "handle empty unsubscription" in new WithBrowser {
+
+      val email = "test@test.com"
+      browser.goTo(s"http://localhost:$port/unsubscribe")
+
+      val firstSignUpButton: FluentWebElement = browser.findFirst("#submit")
+      firstSignUpButton.click()
+
+      val emailField: FluentWebElement = browser.findFirst("#emailField")
+      val signUpButton: FluentWebElement = browser.findFirst("#submit")
+      browser.pageSource() must contain("Please enter email address to unsubscribe") and
+        (emailField must not).beNull and
+        (signUpButton must not).beNull
+    }
+
+    "allow direct unsubscription" in new WithBrowser {
 
       val email = "test@test.com"
       browser.goTo(s"http://localhost:$port/unsubscribe?email=$email")
