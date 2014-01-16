@@ -7,7 +7,6 @@ html {
     font-family: "Helvetica Neue Light", arial, sans-serif;
     font-size: 10pt;
     color: #999999;
-
     overflow-y: scroll;
 }
 
@@ -26,12 +25,12 @@ ul {
 
 #product-tab {
     float: left;
-    margin-left: 30%;
+    margin-left: 100px;
 }
 
 #people-tab {
-    float: right;
-    margin-right: 30%;
+    float: left;
+    margin-left: 40px;
 }
 
 .tab {
@@ -56,9 +55,28 @@ nav a {
 header {
     background-color: #f5f5f5;
     border-bottom: 1px solid #D5D5D5;
-    height: 65px;
+    height: 55px;
     margin-bottom: 30px;
-    padding-top: 3px;
+    padding-top: 5px;
+}
+
+#nav {
+    position: relative;
+    max-width: 900px;
+}
+
+nav {
+    position: absolute;
+    width: 100%;
+}
+
+#titleBar {
+    clear: both;
+    background: url("/assets/images/title.png") no-repeat scroll;
+    background-size: 50px;
+    float: left;
+    height: 50px;
+    width: 50px;
 }
 
 #titleBar a {
@@ -67,21 +85,13 @@ header {
     width: 100%;
 }
 
-#titleBar {
-    background: url("/assets/images/title.png") no-repeat scroll;
-    background-size: 100px;
-    clear: both;
-    float: left;
-    height: 50px;
-    width: 100px;
-    margin-top: 3px;
-}
-
 #signUp {
-    float: right;
+    float: left;
+    margin-left: 50px;
     height: 50px;
-    padding-top: 14px;
+    padding-top: 28px;
     font-size: 10pt;
+    width: 190px;
 }
 
 input {
@@ -91,7 +101,6 @@ input {
 }
 
 #submit {
-    margin: 2px;
     background-color: #ffffff;
     border: 0;
 }
@@ -183,6 +192,15 @@ img {
 }
 
 @media screen and (min-width: 500px) {
+    nav {
+        margin-top: 20px;
+    }
+
+    #signUp {
+        float: right;
+        padding-top: 25px;
+    }
+
     img {
         float: left;
         display: inline;

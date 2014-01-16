@@ -20,6 +20,7 @@ class RegistrationServiceImpl extends RegistrationService {
     val emailLower: String = email.toLowerCase
     dataStore.find(emailLower).map {
       case None => dataStore.save(emailLower)
+      case _ => // do nothing
     }
   }
 
