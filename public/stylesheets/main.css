@@ -81,6 +81,10 @@ nav {
 
 #titleBar a {
     display: block;
+    font-size: 9pt;
+    font-style: italic;
+    padding-left: 25px;
+    text-align: right;
     height: 100%;
     width: 100%;
 }
