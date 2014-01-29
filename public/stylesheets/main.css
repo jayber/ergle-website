@@ -79,13 +79,14 @@ nav {
 }
 
 #titleBar a {
-    display: block;
+    display: inline-block;
     font-size: 9pt;
     font-style: italic;
-    padding-left: 25px;
+    padding-left: 30px;
     text-align: right;
     height: 100%;
     width: 100%;
+    color: #666666;
 }
 
 #signUp {
