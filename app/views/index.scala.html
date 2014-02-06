@@ -1,45 +1,95 @@
 @(page: String, content: Html, registerMessage: Html)
-@import java.util.Date
-@import java.text.SimpleDateFormat
+    @import java.util.Date
+    @import java.text.SimpleDateFormat
 <!DOCTYPE html>
-<html>
-    <head>
+    <html>
+        <head>
 
-        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+            <meta name="viewport" content="width=device-width,initial-scale=1.0">
 
-        <link rel="shortcut icon" href="@routes.Assets.at("images/favicon.png")" type="image/png" />
+            <link rel="shortcut icon" href="@routes.Assets.at("images/favicon.png")" type="image/png" />
 
-        <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/reset.css")">
-        <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/main.css")">
-        @*<script src="@routes.Assets.at("javascripts/jquery-1.9.0.min.js")" type="text/javascript"></script>*@
-        <title>ergle - @page</title>
-    </head>
+            <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/reset.css")">
+            <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/main.css")">
+            <script src="@routes.Assets.at("javascripts/jquery-1.9.0.min.js")" type="text/javascript"></script>
+            <script src="@routes.Assets.at("javascripts/jquery.color-2.1.2.min.js")" type="text/javascript"></script>
+            <title>ergle - @page</title>
+        </head>
 
-    <body>
+        <body>
 
-        <header>
-            <div class="body">
-                <div id="nav">
-                    <nav>
-                        <ul class="tabs">
-                            <li id="product-tab" class="tab @if(page == "product") {selectTab}"><a class="@if(page == "product") {select}" href="/">
-                                product</a></li>
-                            <li id="people-tab" class="tab  @if(page == "people") {selectTab}"><a class="@if(page == "people") {select}" href="/people">
-                                people</a></li>
-                        </ul>
-                    </nav>
+            <div id="housesBackground">
+                <div id="transparentContainer">
+                    <header>
+                        <div class="body">
+                            <div id="nav">
+                                <nav>
+                                    <ul class="tabs">
+                                        <li id="product-tab" class="tab @if(page == "product") {selectTab}"><a class="@if(page == "product") {select}" href="/">
+                                product</a>
+                                        </li>
+                                        <li id="people-tab" class="tab  @if(page == "people") {selectTab}"><a class="@if(page == "people") {select}" href="/people">
+                                people</a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>
+                            <div id="titleBar"><a title="ergle" href="/">ergle</a></div>
+                            <div id="signUp">
+                            @registerMessage
+                            </div>
+
+                        </div>
+                    </header>
+
+                    <div class="body">
+                    @content
+                    </div>
+
                 </div>
-                <div id="titleBar"><a title="ergle" href="/">ergle</a></div>
-                <div id="signUp">
-                @registerMessage
-                </div>
-
             </div>
-        </header>
+            <footer>
+                <div class="body">
+                    <div id="copyright">&#169; @(new SimpleDateFormat("yyyy").format(new Date)) Ergle Limited</div>
+                    <div id="socialLink"><a target="_blank" href="https://www.facebook.com/ergleresearch">
+                    ergleresearch</a>
+                    </div>
+                </div>
+            </footer>
+        </body>
 
-        <div class="body">
-        @content
-        </div>
+        <script>
+
+        function changeBackground ( image, timeFactor ) {
+        setTimeout ( function ( ) {
+        $ ( "#transparentContainer" ).delay ( 2 * 1000 ).animate ( { backgroundColor : 'rgba(255, 255, 255, 1)' }, 2 * 1000 ) ;
+        setTimeout ( function ( ) {
+        $ ( "#housesBackground" ).css ( "background", "url('/assets/images/" + image + ".jpg') no-repeat scroll" ) ;
+        $ ( "#housesBackground" ).css ( "background-size", "cover" ) ;
+
+        $ ( "#transparentContainer" ).animate ( { backgroundColor : 'rgba(255, 255, 255, 0.7)' }, 2 * 1000 ) ;
+        }, 4 * 1000 ) ;
+        }, ( timeFactor * 6 * 1000 ) ) ;
+        }
+
+        function scheduleBackgroundChanges ( ) {
+        changeBackground ( "welsh_brick", 2 ) ;
+        changeBackground ( "power_house_building", 1 ) ;
+        changeBackground ( "japan_house", 3 ) ;
+
+        setTimeout ( function ( ) {
+        scheduleBackgroundChanges ( ) ;
+        }, ( 3.5 * 6 * 1000 ) ) ;
+        }
+
+        $ ( document ).ready ( function ( ) {
+        $ ( "#transparentContainer" ).animate ( { backgroundColor : 'rgba(255, 255, 255, 0.7)' }, 2 * 1000, null, function ( ) {
+        scheduleBackgroundChanges ( ) ;
+        } ) ;
+        } ) ;
+
+        </script>
+
 
             <!-- google analytics -->
         <script>
@@ -52,14 +102,4 @@
         ga ( 'send', 'pageview' ) ;
 
         </script>
-
-        <footer>
-            <div class="body">
-                <div id="copyright">&#169; @(new SimpleDateFormat("yyyy").format(new Date)) Ergle Limited</div>
-                <div id="socialLink"><a target="_blank" href="https://www.facebook.com/ergleresearch">
-                    ergleresearch</a>
-                </div>
-            </div>
-        </footer>
-    </body>
-</html>
+    </html>
