@@ -18,30 +18,30 @@
 
         <body>
 
+            <header>
+                <div class="body">
+                    <div id="nav">
+                        <nav>
+                            <ul class="tabs">
+                                <li id="product-tab" class="tab @if(page == "product") {selectTab}"><a class="@if(page == "product") {select}" href="/">
+                        product</a>
+                                </li>
+                                <li id="people-tab" class="tab  @if(page == "people") {selectTab}"><a class="@if(page == "people") {select}" href="/people">
+                        people</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div id="titleBar"><a title="ergle" href="/">ergle</a></div>
+                    <div id="signUp">
+                    @registerMessage
+                    </div>
+
+                </div>
+            </header>
+
             <div id="housesBackground">
                 <div id="transparentContainer">
-                    <header>
-                        <div class="body">
-                            <div id="nav">
-                                <nav>
-                                    <ul class="tabs">
-                                        <li id="product-tab" class="tab @if(page == "product") {selectTab}"><a class="@if(page == "product") {select}" href="/">
-                                product</a>
-                                        </li>
-                                        <li id="people-tab" class="tab  @if(page == "people") {selectTab}"><a class="@if(page == "people") {select}" href="/people">
-                                people</a>
-                                        </li>
-                                    </ul>
-                                </nav>
-                            </div>
-                            <div id="titleBar"><a title="ergle" href="/">ergle</a></div>
-                            <div id="signUp">
-                            @registerMessage
-                            </div>
-
-                        </div>
-                    </header>
-
                     <div class="body">
                     @content
                     </div>
@@ -60,26 +60,31 @@
 
         <script>
 
-        function changeBackground ( image, timeFactor ) {
-        setTimeout ( function ( ) {
-        $ ( "#transparentContainer" ).delay ( 2 * 1000 ).animate ( { backgroundColor : 'rgba(255, 255, 255, 1)' }, 2 * 1000 ) ;
-        setTimeout ( function ( ) {
+        function changeBackground ( image ) {
+        $ ( "#transparentContainer" ).animate ( { backgroundColor : 'rgba(255, 255, 255, 1)' }, 2 * 1000 )
+        .queue ( function ( next ) {
         $ ( "#housesBackground" ).css ( "background", "url('/assets/images/" + image + ".jpg') no-repeat scroll" ) ;
         $ ( "#housesBackground" ).css ( "background-size", "cover" ) ;
-
-        $ ( "#transparentContainer" ).animate ( { backgroundColor : 'rgba(255, 255, 255, 0.7)' }, 2 * 1000 ) ;
-        }, 4 * 1000 ) ;
-        }, ( timeFactor * 6 * 1000 ) ) ;
+        next ( ) ;
+        } )
+        .queue ( function ( next ) {
+        $ ( "#transparentContainer" ).animate ( { backgroundColor : 'rgba(255, 255, 255, 0.7)' }, 2 * 1000 ).delay ( 2 * 1000 ) ;
+        next ( ) ;
+        } ) ;
         }
 
         function scheduleBackgroundChanges ( ) {
-        changeBackground ( "welsh_brick", 2 ) ;
-        changeBackground ( "power_house_building", 1 ) ;
-        changeBackground ( "japan_house", 3 ) ;
+        var delay = 6 ;
+        setTimeout ( function ( ) {
+        changeBackground ( "welsh_brick" ) }, 1 * delay * 1000 ) ;
+        setTimeout ( function ( ) {
+        changeBackground ( "power_house_building" ) }, 2 * delay * 1000 ) ;
+        setTimeout ( function ( ) {
+        changeBackground ( "japan_house" ) }, 3 * delay * 1000 ) ;
 
         setTimeout ( function ( ) {
         scheduleBackgroundChanges ( ) ;
-        }, ( 3.5 * 6 * 1000 ) ) ;
+        }, ( 3 * delay * 1000 ) ) ;
         }
 
         $ ( document ).ready ( function ( ) {
