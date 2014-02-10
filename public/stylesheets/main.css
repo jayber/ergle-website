@@ -155,8 +155,7 @@ input {
 #transparentContainer {
     height: 100%;
     background-color: rgba(255, 255, 255, 1);
-    padding-bottom: 90px;
-    padding-top: 30px;
+    border-bottom: 1px solid #D5D5D5;
 }
 
 .body {
@@ -166,8 +165,16 @@ input {
     padding: 0 5px;
 }
 
-body {
-    height: 100%;
+#bannerTitle {
+    padding-top: 170px;
+    height: 250px;
+    text-align: center;
+    font-weight: 100;
+    font-family: "Alegreya Sans", sans-serif;
+}
+
+#productBody {
+    padding-top: 25px;
 }
 
 h1 {
@@ -179,26 +186,19 @@ h1 {
 }
 
 p {
-    font-size: 1.4em;
+    font-size: 1.2em;
     font-weight: 400;
     line-height: 1.5em;
-    margin-top: 30px;
+    margin-top: 15px;
 }
 
 p a {
     text-decoration: underline;
 }
 
-.p-title-1 {
-    color: #1c22e6;
-}
-
-.p-title-2 {
-    color: #e6625e;
-}
-
-.p-title-3 {
-    color: #2cbc4c;
+.p-title {
+    font-weight: bold;
+    font-style: italic;
 }
 
 hr {
@@ -240,10 +240,11 @@ img {
     h1 {
         font-size: 5.0em;
     }
+
 }
 
 footer {
-    /*margin: 30px 0 30px 0;*/
+    margin: 30px 0 10px 0;
     padding: 5px;
     border-top: 1px solid #D5D5D5;
     font-size: 8pt;

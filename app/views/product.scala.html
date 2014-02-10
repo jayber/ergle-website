@@ -1,15 +1,67 @@
-<h1>The future of work</h1>
+<div id="housesBackground">
+    <div id="transparentContainer">
+        <div id="banner" class="body">
 
-<p><span class="p-title-1">The house analogy: </span>Imagine building a house. Anyone passing by can see
-    you are building a house, how far you have got and whether you are doing a good job.
-</p>
-<p>If you are working in the digital realm none of this is true. It's like each of us goes down a
-    hole to work each day.</p>
-<p>Ergle will change that, making the invisible visible and <i>doing</i> into <i>saying</i>.</p>
+            <h1 id="bannerTitle">the future of work</h1>
 
-<p><span class="p-title-2">More specifically: </span>Let everyone in your team know what you are doing and
-    find out what they are doing, without the burden of emailing and uploading. Show activity from all your channels
-    in one place.</p>
+        </div>
+    </div>
+</div>
 
-<p><span class="p-title-3">How: </span>Integrate with all your work software to show a timeline of all that happens in
-    your work life, allowing you to share entries with anyone and choose who can see them on your timeline.</p>
+<div id="productBody" class="body">
+    <p>Imagine building a house. Anyone passing by can see
+        you are building a house, how far you have got and whether you are doing a good job.
+    </p>
+    <p>If you are working in the digital realm none of this is true. It's like each of us goes down a
+        hole to work each day.</p>
+    <p>Ergle will change that, making the invisible visible and <i>doing</i> into <i>saying</i>.</p>
+
+    <hr>
+
+    <p><span class="p-title">More specifically: </span>Let everyone in your team know what you are doing and
+        find out what they are doing, without the burden of emailing and uploading. Show activity from all your channels
+        in one place.</p>
+
+    <hr>
+
+    <p><span class="p-title">How: </span>Integrate with all your work software to show a timeline of all that happens in
+        your work life, allowing you to share entries with anyone and choose who can see them on your timeline.</p>
+</div>
+
+<script>
+
+function changeBackground ( image ) {
+$ ( "#transparentContainer" ).animate ( { backgroundColor : 'rgba(255, 255, 255, 1)' }, 2 * 1000 )
+.queue ( function ( next ) {
+$ ( "#housesBackground" ).css ( "background", "url('/assets/images/" + image + ".jpg') no-repeat scroll" )
+.css ( "background-size", "cover" ) ;
+next ( ) ;
+} )
+.queue ( function ( next ) {
+$ ( "#transparentContainer" ).animate ( { backgroundColor : 'rgba(255, 255, 255, 0.5)' }, 2 * 1000 ).delay ( 2 * 1000 ) ;
+next ( ) ;
+} ) ;
+}
+
+function scheduleBackgroundChanges ( ) {
+var delay = 6 ;
+setTimeout ( function ( ) {
+changeBackground ( "welsh_brick" ) }, 1 * delay * 1000 ) ;
+setTimeout ( function ( ) {
+changeBackground ( "power_house_building" ) }, 2 * delay * 1000 ) ;
+setTimeout ( function ( ) {
+changeBackground ( "japan_house" ) }, 3 * delay * 1000 ) ;
+
+setTimeout ( function ( ) {
+scheduleBackgroundChanges ( ) ;
+}, ( 3 * delay * 1000 ) ) ;
+}
+
+$ ( document ).ready ( function ( ) {
+$ ( "#transparentContainer" ).animate ( { backgroundColor : 'rgba(255, 255, 255, 0.7)' }, 2 * 1000, null, function ( ) {
+scheduleBackgroundChanges ( ) ;
+} ) ;
+} ) ;
+
+</script>
+
