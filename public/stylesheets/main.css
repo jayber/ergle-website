@@ -55,7 +55,7 @@ nav a {
 header {
     background-color: #f5f5f5;
     border-bottom: 1px solid #D5D5D5;
-    height: 55px;
+    height: 105px;
     padding-top: 5px;
 }
 
@@ -71,10 +71,11 @@ nav {
 #titleBar {
     clear: both;
     background: url("/assets/images/title.png") no-repeat scroll;
-    background-size: 50px;
+    background-size: 100px;
     float: left;
-    height: 50px;
-    width: 50px;
+    height: 100px;
+    width: 100px;
+    margin-top: 5px;
 }
 
 #titleBar a {
@@ -166,15 +167,53 @@ input {
 }
 
 #bannerTitle {
-    padding-top: 170px;
-    height: 250px;
+    padding-top: 50px;
+    height: 50px;
     text-align: center;
     font-weight: 100;
     font-family: "Alegreya Sans", sans-serif;
 }
 
+.bannerText {
+    float: left;
+    border: 1px SOLID #FFD970;
+    background-color: #EFEADF;
+    font-size: 14pt;
+    color: #333333;
+}
+
+#circlesContainer {
+    height: 800px;
+}
+
+#top {
+    margin-top: 20px;
+    margin-left: 20px;
+    padding: 70px;
+    border-radius: 170px;
+    height: 200px;
+    width: 200px;
+}
+
+#mid {
+    margin-left: 20px;
+    padding: 40px;
+    border-radius: 125px;
+    height: 170px;
+    width: 170px;
+}
+
+#bot {
+    margin-left: 20px;
+    margin-top: 20px;
+    padding: 40px;
+    border-radius: 115px;
+    height: 150px;
+    width: 150px;
+}
+
 #productBody {
-    padding-top: 25px;
+    padding-top: 10px;
 }
 
 h1 {
@@ -213,14 +252,43 @@ img {
     max-height: 190px;
 }
 
+@media screen and (min-width: 1000px) {
+
+    #circlesContainer {
+        height: 400px;
+    }
+
+    #bot {
+        margin-top: 200px;
+    }
+}
+
 @media screen and (min-width: 500px) {
+
+    #product-tab {
+        margin-left: 200px;
+    }
+
+    #top {
+        margin-top: 100px;
+        margin-left: 150px;
+    }
+
+    #mid {
+        margin-left: 150px;
+    }
+
+    #bot {
+        margin-left: 150px;
+    }
+
     nav {
-        margin-top: 20px;
+        margin-top: 50px;
     }
 
     #signUp {
         float: right;
-        padding-top: 25px;
+        padding-top: 55px;
     }
 
     img {
