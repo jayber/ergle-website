@@ -176,8 +176,8 @@ input {
 
 .bannerText {
     float: left;
-    border: 1px SOLID #FFD970;
-    background-color: #EFEADF;
+    border: 2px SOLID #FFe060;
+    background-color: #ffffff;
     font-size: 14pt;
     color: #333333;
 }
