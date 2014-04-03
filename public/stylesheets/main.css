@@ -176,7 +176,7 @@ input {
 
 .bannerText {
     float: left;
-    border: 2px SOLID #FFe060;
+    border: 2px SOLID #FFd050;
     background-color: #ffffff;
     font-size: 14pt;
     color: #333333;
@@ -243,7 +243,6 @@ p a {
 hr {
     margin: 30px;
     border: none;
-    border-bottom: 2px solid #D5D5D5;
 }
 
 img {
@@ -264,6 +263,14 @@ img {
 }
 
 @media screen and (min-width: 500px) {
+
+    #productRight {
+        margin-left: 200px;
+    }
+
+    #productLeft {
+        margin-right: 200px;
+    }
 
     #product-tab {
         margin-left: 200px;
