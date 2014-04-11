@@ -166,8 +166,12 @@ input {
     padding: 0 5px;
 }
 
+.body2 {
+    max-width: 1200px;
+}
+
 #bannerTitle {
-    padding-top: 50px;
+    padding: 10px 0;
     height: 50px;
     text-align: center;
     font-weight: 100;
@@ -175,40 +179,35 @@ input {
 }
 
 .bannerText {
-    float: left;
-    border: 2px SOLID #FFd050;
+    border: 3px SOLID #FFd050;
     background-color: #ffffff;
-    font-size: 14pt;
+    font-size: 12pt;
     color: #333333;
+    text-align: center;
+    border-radius: 100%;
+    margin: 10px auto;
 }
 
 #circlesContainer {
     height: 800px;
+    margin-bottom: 70px;
 }
 
 #top {
-    margin-top: 20px;
-    margin-left: 20px;
-    padding: 70px;
-    border-radius: 170px;
-    height: 200px;
+    padding: 100px 70px 70px 70px;
+    height: 170px;
     width: 200px;
 }
 
 #mid {
-    margin-left: 20px;
-    padding: 40px;
-    border-radius: 125px;
-    height: 170px;
+    padding: 75px 55px 55px 55px;
+    height: 150px;
     width: 170px;
 }
 
 #bot {
-    margin-left: 20px;
-    margin-top: 20px;
-    padding: 40px;
-    border-radius: 115px;
-    height: 150px;
+    padding: 70px 40px 40px 40px;
+    height: 120px;
     width: 150px;
 }
 
@@ -238,6 +237,10 @@ p a {
 .p-title {
     font-weight: bold;
     font-style: italic;
+    color: #FFd050;
+    border-bottom: 3px solid #FFd050;
+    width: 200px;
+    display: inline-block;
 }
 
 hr {
@@ -251,42 +254,44 @@ img {
     max-height: 190px;
 }
 
-@media screen and (min-width: 1000px) {
+@media screen and (min-width: 1150px) {
 
-    #circlesContainer {
-        height: 400px;
-    }
-
-    #bot {
-        margin-top: 200px;
+    #mid {
+        margin: 0 10%;
     }
 }
 
-@media screen and (min-width: 500px) {
+@media screen and (min-width: 900px) {
 
-    #productRight {
-        margin-left: 200px;
-    }
-
-    #productLeft {
-        margin-right: 200px;
-    }
-
-    #product-tab {
-        margin-left: 200px;
+    .bannerText {
+        float: left;
     }
 
     #top {
         margin-top: 100px;
-        margin-left: 150px;
-    }
-
-    #mid {
-        margin-left: 150px;
     }
 
     #bot {
-        margin-left: 150px;
+        margin-top: 190px;
+    }
+
+    #bannerTitle {
+        padding: 40px 0;
+    }
+
+    h1 {
+        font-size: 5.0em;
+    }
+
+    #circlesContainer {
+        height: 330px;
+    }
+}
+
+@media screen and (min-width: 700px) {
+
+    #product-tab {
+        margin-left: 200px;
     }
 
     nav {
@@ -310,10 +315,6 @@ img {
 
     html {
         font-size: 12pt;
-    }
-
-    h1 {
-        font-size: 5.0em;
     }
 
 }
