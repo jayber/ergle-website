@@ -179,12 +179,9 @@ input {
 }
 
 .bannerText {
-    border: 3px SOLID #FFd050;
-    background-color: #ffffff;
     font-size: 12pt;
     color: #333333;
     text-align: center;
-    border-radius: 100%;
     margin: 10px auto;
 }
 
@@ -194,25 +191,28 @@ input {
 }
 
 #top {
+    background: url("/assets/images/circle_large.png") no-repeat scroll;
     padding: 100px 70px 70px 70px;
-    height: 170px;
-    width: 200px;
+    height: 177px;
+    width: 207px;
 }
 
 #mid {
+    background: url("/assets/images/circle_med.png") no-repeat scroll;
     padding: 95px 55px 35px 55px;
-    height: 150px;
-    width: 170px;
+    height: 157px;
+    width: 177px;
 }
 
 #bot {
+    background: url("/assets/images/circle_small.png") no-repeat scroll;
     padding: 70px 40px 40px 40px;
-    height: 120px;
-    width: 150px;
+    height: 127px;
+    width: 157px;
 }
 
 #productBody {
-    padding-top: 10px;
+    padding-top: 20px;
 }
 
 h1 {
@@ -239,14 +239,12 @@ p a {
     color: #FFd050;
     border-bottom: 2px solid #FFd050;
     width: 200px;
-    display: inline-block;
-    margin-left: -210px;
+    display: block;
     margin-right: 10px;
     height: 16px;
 }
 
 #productBody p {
-    margin-left: 200px;
     padding-left: 10px;
 }
 
@@ -326,6 +324,12 @@ img {
 
     .p-title {
         height: 23px;
+        display: inline-block;
+        margin-left: -210px;
+    }
+
+    #productBody p {
+        margin-left: 200px;
     }
 
 }
