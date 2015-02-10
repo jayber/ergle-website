@@ -36,20 +36,27 @@ ul {
 .tab {
     text-align: center;
     font-size: 12pt;
+    padding-top: 21px;
+    background-color: #754f24;
+    color: #ffffff;
 }
 
 .select {
-    border-bottom: 4px solid #999999;
+    border-bottom: 2px solid #000000;
 }
 
 .selectTab {
-    color: #000000;
+    color: #ffffff;
+    background-color: #000000;
 }
 
 nav a {
     display: block;
     width: 55px;
-    border-bottom: 4px solid #d5d5d5;
+    border-bottom: 2px solid #754f24;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 10px;
 }
 
 header {
@@ -60,22 +67,19 @@ header {
 }
 
 #nav {
-    position: relative;
     max-width: 900px;
-}
-
-nav {
-    position: absolute;
+    float: left;
 }
 
 #titleBar {
-    clear: both;
-    background: url("/assets/images/title.png") no-repeat scroll;
-    background-size: 100px;
+    background: url("/assets/images/logo3.png") no-repeat scroll center;
+    background-size: contain;
     float: left;
-    height: 100px;
-    width: 100px;
-    margin-top: 5px;
+    height: 50px;
+    width: 195px;
+    border-left: 50px solid #ffffff;
+    /*border-bottom: 2px solid #ffffff;*/
+    /*border-top: 2px solid #ffffff;*/
 }
 
 #titleBar a {
@@ -89,12 +93,10 @@ nav {
 }
 
 #signUp {
-    float: left;
-    margin-left: 50px;
+    float: right;
     height: 50px;
-    padding-top: 28px;
     font-size: 10pt;
-    width: 190px;
+    padding-top: 13px;
 }
 
 input {
@@ -144,14 +146,7 @@ input {
     color: #aaaaaa;
 }
 
-#housesBackground {
-    border-top: 1px solid #ffffff;
-    border-bottom: 1px solid #ffffff;
-    height: auto;
-    min-height: 100%;
-    background: url("/assets/images/japan_house.jpg") no-repeat scroll;
-    background-size: cover;
-}
+
 
 #transparentContainer {
     height: 100%;
@@ -159,8 +154,41 @@ input {
     border-bottom: 1px solid #D5D5D5;
 }
 
+.suede-top-container {
+    layout: flow-horizontal;
+    width: 100%;
+}
+
+.suede-top {
+    height: 50px;
+}
+
+.suede-top-left {
+    background-color: #000000;
+    width: 50px;
+    border-bottom: 2px solid #ffffff;
+}
+
+.suede-top-right {
+    layoutConstraints: wgrow;
+    border-bottom: 2px solid #000000;
+}
+
+#suede-body {
+    layout: flow-horizontal;
+    background-color: #754f24;
+}
+
+#suede-body-spacer {
+    width: 50px;
+}
+
+#suede-body-content {
+    layoutConstraints: wgrow;
+    background-color: #ffffff;
+}
+
 .body {
-    clear: both;
     max-width: 900px;
     margin: 0 auto;
     padding: 0 5px;
@@ -299,13 +327,8 @@ img {
         margin-left: 200px;
     }
 
-    nav {
-        margin-top: 50px;
-    }
-
     #signUp {
         float: right;
-        padding-top: 55px;
     }
 
     img {
