@@ -46,6 +46,14 @@ definitions = {
             var thisMarginAndPadding = elem.outerWidth(true) - elem.width();
             remainder = remainder - thisMarginAndPadding;
             elem.css('width', remainder + 'px');
+
+            /*hack because sometimes it wraps in firefox !!??? */
+            var total = elem.outerWidth(true);
+
+            elem.siblings().filter(":visible").each(function () {
+                total = total + $(this).outerWidth(true);
+            });
+            elem.parent().css('width', total + 'px');
         }
 
         if (args == 'distribute') {

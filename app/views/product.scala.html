@@ -1,71 +1,11 @@
-<div id="">
-    <div id="transparentContainer">
-        <div class="body body2">
-            <div id="banner">
+<div id="hole-section">
+    <h1>Working in a Hole?</h1>
 
-                <h1 id="bannerTitle">the future of work</h1>
+    <div>
+        <p id="top">Computers <em>hide</em> our work from colleagues and clients.
+        </p>
 
-            </div>
-            <div id="circlesContainer">
-                <p class="bannerText" id="top">Imagine building a house. Anyone passing by can see
-                    you are building a house, how far you have got and whether you are doing a good job.
-                </p>
-                <p class="bannerText" id="mid">In the digital realm, it's like each of us goes down a
-                    hole to work each day.</p>
-
-                <p class="bannerText" id="bot">Ergle will change that, making the invisible visible and <i>doing</i>
-                    into <i>saying</i>.</p>
-            </div>
-        </div>
+        <p id="bottom">Ergle uses technology to make sharing <em>effortless</em>.</p>
     </div>
+    <div style="clear : both"></div>
 </div>
-
-<div id="productBody" class="body">
-
-    <p><span class="p-title">More specifically: </span>Let everyone in your team know what you are doing and
-        find out what they are doing, without the burden of emailing and uploading. Show activity from all your channels
-        in one place.</p>
-
-    <hr>
-
-    <p><span class="p-title">How: </span>Integrate with all your work software to show a timeline of all that happens in
-        your work life, allowing you to share entries with anyone and choose who can see them on your timeline.</p>
-</div>
-
-<script>
-
-function changeBackground ( image ) {
-$ ( "#transparentContainer" ).animate ( { backgroundColor : 'rgba(255, 255, 255, 1)' }, 2 * 1000 )
-.queue ( function ( next ) {
-$ ( "#housesBackground" ).css ( "background", "url('/assets/images/" + image + ".jpg') no-repeat scroll" )
-.css ( "background-size", "cover" ) ;
-next ( ) ;
-} )
-.queue ( function ( next ) {
-$ ( "#transparentContainer" ).animate ( { backgroundColor : 'rgba(255, 255, 255, 0.5)' }, 2 * 1000 ).delay ( 2 * 1000 ) ;
-next ( ) ;
-} ) ;
-}
-
-function scheduleBackgroundChanges ( ) {
-var delay = 6 ;
-setTimeout ( function ( ) {
-changeBackground ( "welsh_brick" ) }, 1 * delay * 1000 ) ;
-setTimeout ( function ( ) {
-changeBackground ( "power_house_building" ) }, 2 * delay * 1000 ) ;
-setTimeout ( function ( ) {
-changeBackground ( "japan_house" ) }, 3 * delay * 1000 ) ;
-
-setTimeout ( function ( ) {
-scheduleBackgroundChanges ( ) ;
-}, ( 3 * delay * 1000 ) ) ;
-}
-
-$ ( document ).ready ( function ( ) {
-$ ( "#transparentContainer" ).animate ( { backgroundColor : 'rgba(255, 255, 255, 0.7)' }, 2 * 1000, null, function ( ) {
-scheduleBackgroundChanges ( ) ;
-} ) ;
-} ) ;
-
-</script>
-

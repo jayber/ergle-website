@@ -6,7 +6,7 @@ input::-moz-focus-inner {
 html {
     font-family: "Helvetica Neue Light", arial, sans-serif;
     font-size: 10pt;
-    color: #777777;
+    color: #555555;
     overflow-y: scroll;
 }
 
@@ -23,14 +23,29 @@ ul {
     list-style-type: none;
 }
 
+h2 {
+    font-family: 'Jura', sans-serif;
+    padding-bottom: 20px;
+}
+
+#hole-section em {
+    display: inline-block;
+    background-color: rgba(117, 79, 36, 0.65);
+    color: #ffffff;
+    padding: 2px;
+}
+
+
 #product-tab {
     float: left;
-    margin-left: 100px;
 }
 
 #people-tab {
     float: left;
-    margin-left: 40px;
+}
+
+.tabs {
+    float: left;
 }
 
 .tab {
@@ -52,10 +67,8 @@ ul {
 
 nav a {
     display: block;
-    width: 55px;
+    width: 59px;
     border-bottom: 2px solid #754f24;
-    padding-left: 10px;
-    padding-right: 10px;
     padding-bottom: 10px;
 }
 
@@ -66,20 +79,37 @@ header {
     padding-top: 5px;
 }
 
+#headerContainer {
+    height: 52px;
+    background-color: rgba(255, 255, 255, 1);
+}
+
+.suede-top {
+    border-left: 5px solid #000000;
+    border-bottom: 2px solid #000000;
+    height: 50px;
+}
+
+#rightHeader {
+    float: right;
+}
+
 #nav {
-    max-width: 900px;
-    float: left;
+    float: right;
 }
 
 #titleBar {
     background: url("/assets/images/logo3.png") no-repeat scroll center;
-    background-size: contain;
+    background-size: cover;
     float: left;
+    z-index: -3;
+
     height: 50px;
-    width: 195px;
-    border-left: 50px solid #ffffff;
-    /*border-bottom: 2px solid #ffffff;*/
-    /*border-top: 2px solid #ffffff;*/
+    width: 196px;
+    -webkit-transition: height 2000ms ease, width 2000ms ease;
+    -moz-transition: height 2000ms ease, width 2000ms ease;
+    -o-transition: height 2000ms ease, width 2000ms ease;
+    transition: height 2000ms ease, width 2000ms ease;
 }
 
 #titleBar a {
@@ -92,11 +122,23 @@ header {
     width: 100%;
 }
 
-#signUp {
+.signUpTopBar {
+    display: none;
     float: right;
-    height: 50px;
-    font-size: 10pt;
     padding-top: 13px;
+    padding-left: 5px;
+}
+
+.signUpUnderBar {
+    width: 100%;
+    text-align: center;
+    background-color: rgba(117, 79, 36, 0.10);
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.signUp {
+    font-size: 10pt;
 }
 
 input {
@@ -146,46 +188,25 @@ input {
     color: #aaaaaa;
 }
 
-
-
-#transparentContainer {
-    height: 100%;
-    background-color: rgba(255, 255, 255, 1);
-    border-bottom: 1px solid #D5D5D5;
+#hiddenBackground {
+    background: url("/assets/images/hole_bottom.jpg") no-repeat scroll;
+    background-size: cover;
+    background-position: top;
 }
 
-.suede-top-container {
-    layout: flow-horizontal;
+#background {
+    background: url("/assets/images/hole_bottom.jpg") no-repeat scroll;
+    background-size: cover;
+    background-position: top;
+}
+
+.backgroundShade {
+    background-color: rgba(255, 255, 255, 0.55);
     width: 100%;
 }
 
-.suede-top {
-    height: 50px;
-}
-
-.suede-top-left {
-    background-color: #000000;
-    width: 50px;
-    border-bottom: 2px solid #ffffff;
-}
-
-.suede-top-right {
-    layoutConstraints: wgrow;
-    border-bottom: 2px solid #000000;
-}
-
-#suede-body {
-    layout: flow-horizontal;
-    background-color: #754f24;
-}
-
-#suede-body-spacer {
-    width: 50px;
-}
-
 #suede-body-content {
-    layoutConstraints: wgrow;
-    background-color: #ffffff;
+    border-left: 5px solid #754f24;
 }
 
 .body {
@@ -198,64 +219,68 @@ input {
     max-width: 1200px;
 }
 
-#bannerTitle {
-    padding: 10px 0;
+#hole-section {
+    text-align: center;
+    padding-bottom: 80px;
+}
+
+#hole-section > h1 {
+    color: #222222;
     height: 50px;
-    text-align: center;
-    font-weight: 100;
-    font-family: "Alegreya Sans", sans-serif;
+    font-weight: 700;
+    font-family: 'Play', sans-serif;
+    padding-top: 10px;
 }
 
-.bannerText {
-    font-size: 12pt;
-    color: #333333;
-    text-align: center;
-    margin: 10px auto;
+#hole-section p {
+    color: #222222;
+    font-size: 1.5em;
+    font-family: 'Jura', sans-serif;
+    font-weight: 500;
+    height: 3em;
+    margin-top: 40px;
 }
 
-#circlesContainer {
-    height: 800px;
-    margin-bottom: 70px;
+#hole-section > div {
+    margin-right: 1%;
+    margin-left: 1%;
 }
 
 #top {
-    background: url("/assets/images/circle_large.png") no-repeat scroll;
-    padding: 100px 70px 70px 70px;
-    height: 177px;
-    width: 207px;
+    text-align: left;
+    border-left: 2px solid #000000;
 }
 
-#mid {
-    background: url("/assets/images/circle_med.png") no-repeat scroll;
-    padding: 95px 55px 35px 55px;
-    height: 157px;
-    width: 177px;
-}
+#bottom {
+    text-align: right;
+    border-right: 2px solid #000000;
 
-#bot {
-    background: url("/assets/images/circle_small.png") no-repeat scroll;
-    padding: 70px 40px 40px 40px;
-    height: 127px;
-    width: 157px;
 }
 
 #productBody {
     padding-top: 20px;
 }
 
-h1 {
-    font-size: 2.0em;
+h1, h2 {
+    font-size: 2.5em;
     font-weight: 300;
-    line-height: 1em;
-    margin-bottom: 30px;
-    color: #444444;
+    color: #333333;
 }
 
-p {
+p, ol {
     font-size: 1.2em;
     font-weight: 400;
     line-height: 1.4em;
+}
+
+p {
     margin-top: 15px;
+    padding: 0 3px;
+}
+
+ol {
+    list-style: lower-alpha;
+    padding: 10px;
 }
 
 p a {
@@ -287,81 +312,44 @@ img {
     max-height: 190px;
 }
 
-@media screen and (min-width: 1150px) {
-
-    #mid {
-        margin: 0 10%;
-    }
+section {
+    padding: 20px 20px 50px 20px;
+    border-top: 1px solid #d5d5d5;
 }
 
-@media screen and (min-width: 900px) {
-
-    .bannerText {
-        float: left;
-    }
-
-    #top {
-        margin-top: 100px;
-    }
-
-    #bot {
-        margin-top: 190px;
-    }
-
-    #bannerTitle {
-        padding: 40px 0;
-    }
-
-    h1 {
-        font-size: 5.0em;
-    }
-
-    #circlesContainer {
-        height: 330px;
-    }
+#bottleneck-section h2 {
+    text-align: right;
 }
 
-@media screen and (min-width: 700px) {
+#bottleneck-section p {
+    line-height: 1.7;
+    word-spacing: 2px;
+    margin-top: 30px;
+}
 
-    #product-tab {
-        margin-left: 200px;
-    }
+section em {
+    font-weight: bold;
+    color: #000000;
+}
 
-    #signUp {
-        float: right;
-    }
+#bottle {
+    background: url("/assets/images/bottleneck_black.png") no-repeat scroll;
+    background-size: contain;
+    background-position: center;
+    width: 100%;
+    height: 100px;
+}
 
-    img {
-        float: left;
-        display: inline;
-        margin: 5px 10px 0 0;
-    }
-
-    img.right {
-        float: right;
-    }
-
-    html {
-        font-size: 12pt;
-    }
-
-    .p-title {
-        height: 23px;
-        display: inline-block;
-        margin-left: -210px;
-    }
-
-    #productBody p {
-        margin-left: 200px;
-    }
-
+#genie-section h2 {
+    text-align: left;
 }
 
 footer {
-    margin: 30px 0 10px 0;
     padding: 5px;
     border-top: 1px solid #D5D5D5;
     font-size: 8pt;
+    height: 15px;
+    background-color: #ffffff;
 }
 
 #copyright {
@@ -378,4 +366,233 @@ footer {
     padding-top: 2px;
     height: 16px;
     display: block;
+}
+
+@media screen and (min-width: 500px) {
+
+    nav a {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    #people-tab {
+        margin-left: 40px;
+    }
+
+    #hole-section > div {
+        margin-right: 5%;
+        margin-left: 5%;
+    }
+
+    #bottle {
+        height: 275px;
+        width: 45%;
+        float: left;
+    }
+
+    #bottleneck-section div.text {
+        float: right;
+        display: block;
+        width: 50%;
+        margin: 0;
+    }
+}
+
+@media screen and (min-width: 670px) {
+
+    html {
+        font-size: 12pt;
+    }
+
+    .p-title {
+        height: 23px;
+        display: inline-block;
+    }
+
+    .signUpTopBar {
+        display: block;
+    }
+
+    .signUpUnderBar {
+        display: none;
+    }
+
+    .suede-top {
+        border-left: 50px solid #000000;
+    }
+
+    #suede-body-content {
+        border-left: 50px solid #754f24;
+    }
+
+    section {
+        padding: 20px 50px 50px 70px;
+    }
+
+}
+
+@media screen and (min-width: 750px) {
+
+    .signUpTopBar {
+        padding-right: 30px;
+        padding-left: 20px;
+}
+
+    #hole-section p {
+        display: block;
+        width: 45%;
+        height: 5em;
+    }
+
+    #top {
+        float: left;
+    }
+
+    #bottom {
+        float: right;
+    }
+}
+
+@media screen and (min-width: 900px) {
+
+    h1, h2 {
+        font-size: 4.0em;
+    }
+
+    .signUpTopBar {
+        padding-right: 30px;
+        padding-left: 20px;
+    }
+
+    #hole-section > div {
+        margin-top: 40px;
+        margin-left: 2%;
+        margin-right: 2%;
+    }
+
+}
+
+@media screen and (min-width: 1024px) {
+
+    html {
+        font-size: 14pt;
+    }
+
+    #background {
+        background: url("/assets/images/hole.jpg") no-repeat scroll;
+        background-size: cover;
+        background-position: top;
+    }
+
+    .suede-top {
+        height: 175px;
+
+        -webkit-transition: height 2000ms ease;
+        -moz-transition: height 2000ms ease;
+        -o-transition: height 2000ms ease;
+        transition: height 2000ms ease;
+    }
+
+    #headerContainer {
+        height: 177px;
+        /*background-color: rgba(117, 79, 36, 0.10);*/
+        background-color: rgba(115, 90, 40, 0.20);
+
+        -webkit-transition: height 2000ms ease, background-color 2000ms ease;
+        -moz-transition: height 2000ms ease, background-color 2000ms ease;
+        -o-transition: height 2000ms ease, background-color 2000ms ease;
+        transition: height 2000ms ease, background-color 2000ms ease;
+    }
+
+    #nav {
+        float: none;
+        margin-right: 50px;
+        padding-top: 19px;
+        padding-left: 20px;
+
+        -webkit-transition: padding-top 2000ms ease, margin-right 2000ms ease, padding-left 2000ms ease;
+        -moz-transition: padding-top 2000ms ease, margin-right 2000ms ease, padding-left 2000ms ease;
+        -o-transition: padding-top 2000ms ease, margin-right 2000ms ease, padding-left 2000ms ease;
+        transition: padding-top 2000ms ease, margin-right 2000ms ease, padding-left 2000ms ease;
+    }
+
+    .signUpTopBar {
+        float: none;
+        margin-bottom: 55px;
+        margin-right: 25px;
+        margin-top: 16px;
+
+        -webkit-transition: margin-top 2000ms ease, margin-right 2000ms ease, margin-bottom 2000ms ease;
+        -moz-transition: margin-top 2000ms ease, margin-right 2000ms ease, margin-bottom 2000ms ease;
+        -o-transition: margin-top 2000ms ease, margin-right 2000ms ease, margin-bottom 2000ms ease;
+        transition: margin-top 2000ms ease, margin-right 2000ms ease, margin-bottom 2000ms ease;
+    }
+
+    #titleBar {
+        height: 175px;
+        width: 685px;
+
+        -webkit-transition: height 2000ms ease, width 2000ms ease;
+        -moz-transition: height 2000ms ease, width 2000ms ease;
+        -o-transition: height 2000ms ease, width 2000ms ease;
+        transition: height 2000ms ease, width 2000ms ease;
+    }
+
+    #suede-body-content {
+
+        -webkit-transition: padding-top 2000ms ease;
+        -moz-transition: padding-top 2000ms ease;
+        -o-transition: padding-top 2000ms ease;
+        transition: padding-top 2000ms ease;
+    }
+
+    #hole-section > div {
+        margin-left: 10%;
+        margin-right: 10%;
+    }
+}
+
+@media screen and (min-width: 1315px) {
+
+    #hole-section p {
+        width: 28%;
+        font-weight: 600;
+    }
+
+    #hole-section > div {
+        margin-top: 160px;
+    }
+
+    #hole-section {
+        padding-bottom: 270px;
+    }
+
+    .suede-top {
+        height: 250px;
+    }
+
+    #headerContainer {
+        height: 252px;
+        /*background-color: rgba(117, 79, 36, 0.10);*/
+        background-color: rgba(115, 90, 40, 0.20);
+    }
+
+    #nav {
+        float: none;
+        margin-right: 50px;
+        padding-top: 70px;
+        padding-left: 20px;
+    }
+
+    .signUpTopBar {
+        float: none;
+        margin-bottom: 75px;
+        margin-right: 25px;
+        margin-top: 20px;
+    }
+
+    #titleBar {
+        height: 250px;
+        width: 979px;
+    }
 }

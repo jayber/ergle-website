@@ -1,9 +1,10 @@
 @(page: String, content: Html, registerMessage: Html)
 @import java.text.SimpleDateFormat
-    @import java.util.Date
+@import java.util.Date
 <!DOCTYPE html>
 <html>
     <head>
+        <link href='http://fonts.googleapis.com/css?family=Play:700|Jura:400,500,600' rel='stylesheet' type='text/css'>
         <meta name="viewport" content="width=device-width,initial-scale=1.0">
         <link rel="shortcut icon" href="@routes.Assets.at("images/favicon.ico")" type="image/ico" />
         <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/reset.css")">
@@ -15,51 +16,79 @@
     </head>
 
     <body>
-        <div class="suede-top-container">
-            <div class="suede-top suede-top-left"></div>
-            <div class="suede-top suede-top-right">
-                <div id="titleBar"><a title="ergle" href="/">&nbsp;</a></div>
-                <div class="body">
+        <div id="hiddenBackground">
+            <div id="background">
 
-                    <div id="nav">
-                        <nav>
-                            <ul class="tabs">
-                                <li id="product-tab" class="tab @if(page == "product") {selectTab}"><a class="@if(page == "product") {select}" href="/">
-                                    product</a>
-                                </li>
-                                <li id="people-tab" class="tab  @if(page == "people") {selectTab}"><a class="@if(page == "people") {select}" href="/people">
-                                    people</a>
-                                </li>
-                            </ul>
-                        </nav>
-                    </div>
+                <div class="backgroundShade">
 
-                    <div id="signUp">
-                    @registerMessage
-                    </div>
-                </div>
-            </div>
-        </div>
+                    <div class="suede-top-container">
+                        <div id="headerContainer">
+                            <div class="suede-top">
+                                <div id="titleBar"><a title="ergle" href="/">&nbsp;</a></div>
 
-        <div id="suede-body">
-            <div id="suede-body-spacer">&nbsp;</div>
-            <div id="suede-body-content">
-                <div>
-                @content
-                </div>
+                                <div id="rightHeader">
+                                    <div class="signUpTopBar signUp">
+                                    @registerMessage
+                                    </div>
 
-                <footer>
-                    <div class="body">
-                        <div id="copyright">&#169; @(new SimpleDateFormat("yyyy").format(new Date)) Ergle Limited</div>
-                        <div id="socialLink"><a target="_blank" href="https://www.facebook.com/ergleresearch">
-                            ergleresearch</a>
+                                    <nav id="nav">
+                                        <ul class="tabs">
+                                            <li id="product-tab" class="tab @if(page == "product") {selectTab}"><a class="@if(page == "product") {select}" href="/">
+                                                product</a>
+                                            </li>
+                                            <li id="people-tab" class="tab  @if(page == "people") {selectTab}"><a class="@if(page == "people") {select}" href="/people">
+                                                people</a>
+                                            </li>
+                                        </ul>
+
+                                    </nav>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </footer>
 
+                    <div id="suede-body-content">
+
+                        <div class="signUpUnderBar signUp">
+                        @registerMessage
+                        </div>
+
+                        @if(page == "product") {
+                            <div id="main-content">
+                            @product()
+                            </div>
+                        }
+
+                    </div>
+
+                </div>
             </div>
         </div>
+        <div id="suede-body-content">
+
+            @content
+
+            <footer>
+                <div id="copyright">&#169; @(new SimpleDateFormat("yyyy").format(new Date)) Ergle Limited</div>
+                <div id="socialLink"><a target="_blank" href="https://www.facebook.com/ergleresearch">
+                    ergleresearch</a>
+                </div>
+            </footer>
+
+        </div>
     </body>
+
+    <script>
+    $ ( window ).scroll ( function ( ) {
+    $ ( '#titleBar' ).css ( "height", "50px" ).css ( "width", "196px" ) ;
+    $ ( '.suede-top' ).css ( "height", "50px" ) ;
+    $ ( '#headerContainer' ).css ( "position", "fixed" ).css ( "width", "100%" ).css ( "height", "52px" ).css ( "background-color", "rgba(255, 255, 255, 1)" ) ;
+    $ ( '#nav' ).css ( "padding-right", "0" ).css ( "padding-top", "0" ).css ( "padding-left", "0" ).css ( "float", "right" ) ;
+    $ ( '.signUpTopBar' ).css ( "margin-right", "0" ).css ( "margin-top", "0" ).css ( "margin-bottom", "0" ).css ( "float", "right" ) ;
+    $ ( '#suede-body-content' ).css ( "padding-top", "50px" ) ;
+    $ ( '#background' ).css ( "background-image", "none" ) ;
+    } ) ;
+    </script>
 
         <!-- google analytics -->
     <script>
