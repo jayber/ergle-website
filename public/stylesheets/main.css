@@ -35,7 +35,6 @@ h2 {
     padding: 2px;
 }
 
-
 #product-tab {
     float: left;
 }
@@ -106,10 +105,10 @@ header {
 
     height: 50px;
     width: 196px;
-    -webkit-transition: height 2000ms ease, width 2000ms ease;
-    -moz-transition: height 2000ms ease, width 2000ms ease;
-    -o-transition: height 2000ms ease, width 2000ms ease;
-    transition: height 2000ms ease, width 2000ms ease;
+    -webkit-transition: height 1000ms ease, width 1000ms ease;
+    -moz-transition: height 1000ms ease, width 1000ms ease;
+    -o-transition: height 1000ms ease, width 1000ms ease;
+    transition: height 1000ms ease, width 1000ms ease;
 }
 
 #titleBar a {
@@ -129,12 +128,22 @@ header {
     padding-left: 5px;
 }
 
-.signUpUnderBar {
+#signUpUnderBar {
     width: 100%;
     text-align: center;
-    background-color: rgba(117, 79, 36, 0.10);
+    background-color: rgba(115, 90, 40, 0.20);
     padding-top: 20px;
     padding-bottom: 20px;
+    border-bottom: 1px solid rgba(115, 90, 40, 0.40);
+    font-size: 11pt;
+    opacity: 0.85;
+
+    top: 0;
+
+    -webkit-transition: top 1000ms ease;
+    -moz-transition: top 1000ms ease;
+    -o-transition: top 1000ms ease;
+    transition: top 1000ms ease;
 }
 
 .signUp {
@@ -145,6 +154,10 @@ input {
     border-radius: 1px;
     padding: 2px 4px;
     text-align: center;
+}
+
+#emailField {
+    width: 30em;
 }
 
 #submit {
@@ -205,7 +218,7 @@ input {
     width: 100%;
 }
 
-#suede-body-content {
+.suede-body-content {
     border-left: 5px solid #754f24;
 }
 
@@ -224,12 +237,15 @@ input {
     padding-bottom: 80px;
 }
 
+.scroll #hole-section > h1 {
+    padding-top: 60px;
+}
+
 #hole-section > h1 {
     color: #222222;
     height: 50px;
     font-weight: 700;
     font-family: 'Play', sans-serif;
-    padding-top: 10px;
 }
 
 #hole-section p {
@@ -267,19 +283,23 @@ h1, h2 {
     color: #333333;
 }
 
-p, ol {
+p, ol, section ul {
     font-size: 1.2em;
     font-weight: 400;
     line-height: 1.4em;
 }
 
 p {
-    margin-top: 15px;
-    padding: 0 3px;
+    padding: 15px 3px 0;
 }
 
 ol {
-    list-style: lower-alpha;
+    list-style: inside none lower-alpha;
+    padding: 10px;
+}
+
+section ul {
+    list-style: inside disc;
     padding: 10px;
 }
 
@@ -317,13 +337,20 @@ section {
     border-top: 1px solid #d5d5d5;
 }
 
+section .text {
+    line-height: 1.7;
+    word-spacing: 2px;
+}
+
+#bottleneck-section {
+    background-color: #efefef;
+}
+
 #bottleneck-section h2 {
     text-align: right;
 }
 
 #bottleneck-section p {
-    line-height: 1.7;
-    word-spacing: 2px;
     margin-top: 30px;
 }
 
@@ -333,14 +360,13 @@ section em {
 }
 
 #bottle {
-    background: url("/assets/images/bottleneck_black.png") no-repeat scroll;
+    background: url("/assets/images/bottle_you.png") no-repeat scroll;
     background-size: contain;
     background-position: center;
-    width: 100%;
     height: 100px;
 }
 
-#genie-section h2 {
+#oneplace-section h2 {
     text-align: left;
 }
 
@@ -386,19 +412,20 @@ footer {
 
     #bottle {
         height: 275px;
-        width: 45%;
-        float: left;
     }
 
-    #bottleneck-section div.text {
-        float: right;
+    section .text {
         display: block;
-        width: 50%;
-        margin: 0;
+        float: left;
+        width: 47%;
+    }
+
+    section .right {
+        float: right;
     }
 }
 
-@media screen and (min-width: 670px) {
+@media screen and (min-width: 690px) {
 
     html {
         font-size: 12pt;
@@ -413,30 +440,70 @@ footer {
         display: block;
     }
 
-    .signUpUnderBar {
-        display: none;
+    #signUpUnderBar {
+        visibility: hidden;
+        position: fixed;
+        padding-right: 50px;
     }
 
     .suede-top {
         border-left: 50px solid #000000;
     }
 
-    #suede-body-content {
+    .suede-body-content {
         border-left: 50px solid #754f24;
     }
 
+    .scroll #titleBar {
+        height: 50px;
+        width: 196px;
+    }
+
+    .scroll .suede-top {
+        height: 50px;
+    }
+
+    .scroll #headerContainer {
+        position: fixed;
+        width: 100%;
+        height: 52px;
+        background-color: rgba(255, 255, 255, 1);
+    }
+
+    .scroll #nav {
+        padding-right: 0;
+        padding-top: 0;
+        padding-left: 0;
+        float: right;
+    }
+
+    .scroll .signUpTopBar {
+        display: none;
+    }
+
+    .scroll #first-body-content {
+        padding-top: 50px;
+    }
+
+    .scroll #background {
+        background-image: none;
+    }
+
+    .scroll #signUpUnderBar {
+        visibility: visible;
+    }
+
+    .scroll #signUpUnderBar {
+        top: 52px;
+    }
+
     section {
-        padding: 20px 50px 50px 70px;
+        padding: 20px 50px 50px 50px;
     }
 
 }
 
 @media screen and (min-width: 750px) {
-
-    .signUpTopBar {
-        padding-right: 30px;
-        padding-left: 20px;
-}
 
     #hole-section p {
         display: block;
@@ -457,11 +524,6 @@ footer {
 
     h1, h2 {
         font-size: 4.0em;
-    }
-
-    .signUpTopBar {
-        padding-right: 30px;
-        padding-left: 20px;
     }
 
     #hole-section > div {
@@ -487,10 +549,10 @@ footer {
     .suede-top {
         height: 175px;
 
-        -webkit-transition: height 2000ms ease;
-        -moz-transition: height 2000ms ease;
-        -o-transition: height 2000ms ease;
-        transition: height 2000ms ease;
+        -webkit-transition: height 1000ms ease;
+        -moz-transition: height 1000ms ease;
+        -o-transition: height 1000ms ease;
+        transition: height 1000ms ease;
     }
 
     #headerContainer {
@@ -498,10 +560,10 @@ footer {
         /*background-color: rgba(117, 79, 36, 0.10);*/
         background-color: rgba(115, 90, 40, 0.20);
 
-        -webkit-transition: height 2000ms ease, background-color 2000ms ease;
-        -moz-transition: height 2000ms ease, background-color 2000ms ease;
-        -o-transition: height 2000ms ease, background-color 2000ms ease;
-        transition: height 2000ms ease, background-color 2000ms ease;
+        -webkit-transition: height 1000ms ease, background-color 1000ms ease;
+        -moz-transition: height 1000ms ease, background-color 1000ms ease;
+        -o-transition: height 1000ms ease, background-color 1000ms ease;
+        transition: height 1000ms ease, background-color 1000ms ease;
     }
 
     #nav {
@@ -510,10 +572,10 @@ footer {
         padding-top: 19px;
         padding-left: 20px;
 
-        -webkit-transition: padding-top 2000ms ease, margin-right 2000ms ease, padding-left 2000ms ease;
-        -moz-transition: padding-top 2000ms ease, margin-right 2000ms ease, padding-left 2000ms ease;
-        -o-transition: padding-top 2000ms ease, margin-right 2000ms ease, padding-left 2000ms ease;
-        transition: padding-top 2000ms ease, margin-right 2000ms ease, padding-left 2000ms ease;
+        -webkit-transition: padding-top 1000ms ease, margin-right 1000ms ease, padding-left 1000ms ease;
+        -moz-transition: padding-top 1000ms ease, margin-right 1000ms ease, padding-left 1000ms ease;
+        -o-transition: padding-top 1000ms ease, margin-right 1000ms ease, padding-left 1000ms ease;
+        transition: padding-top 1000ms ease, margin-right 1000ms ease, padding-left 1000ms ease;
     }
 
     .signUpTopBar {
@@ -522,28 +584,28 @@ footer {
         margin-right: 25px;
         margin-top: 16px;
 
-        -webkit-transition: margin-top 2000ms ease, margin-right 2000ms ease, margin-bottom 2000ms ease;
-        -moz-transition: margin-top 2000ms ease, margin-right 2000ms ease, margin-bottom 2000ms ease;
-        -o-transition: margin-top 2000ms ease, margin-right 2000ms ease, margin-bottom 2000ms ease;
-        transition: margin-top 2000ms ease, margin-right 2000ms ease, margin-bottom 2000ms ease;
+        -webkit-transition: margin-top 1000ms ease, margin-right 1000ms ease, margin-bottom 1000ms ease;
+        -moz-transition: margin-top 1000ms ease, margin-right 1000ms ease, margin-bottom 1000ms ease;
+        -o-transition: margin-top 1000ms ease, margin-right 1000ms ease, margin-bottom 1000ms ease;
+        transition: margin-top 1000ms ease, margin-right 1000ms ease, margin-bottom 1000ms ease;
     }
 
     #titleBar {
         height: 175px;
         width: 685px;
 
-        -webkit-transition: height 2000ms ease, width 2000ms ease;
-        -moz-transition: height 2000ms ease, width 2000ms ease;
-        -o-transition: height 2000ms ease, width 2000ms ease;
-        transition: height 2000ms ease, width 2000ms ease;
+        -webkit-transition: height 1000ms ease, width 1000ms ease;
+        -moz-transition: height 1000ms ease, width 1000ms ease;
+        -o-transition: height 1000ms ease, width 1000ms ease;
+        transition: height 1000ms ease, width 1000ms ease;
     }
 
-    #suede-body-content {
+    .suede-body-content {
 
-        -webkit-transition: padding-top 2000ms ease;
-        -moz-transition: padding-top 2000ms ease;
-        -o-transition: padding-top 2000ms ease;
-        transition: padding-top 2000ms ease;
+        -webkit-transition: padding-top 1000ms ease;
+        -moz-transition: padding-top 1000ms ease;
+        -o-transition: padding-top 1000ms ease;
+        transition: padding-top 1000ms ease;
     }
 
     #hole-section > div {
