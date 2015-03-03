@@ -69,13 +69,8 @@ nav a {
     width: 59px;
     border-bottom: 2px solid #754f24;
     padding-bottom: 10px;
-}
 
-header {
-    background-color: #f5f5f5;
-    border-bottom: 1px solid #D5D5D5;
-    height: 105px;
-    padding-top: 5px;
+    line-height: 1.2em; /*without this height varies between firefox and chrome*/
 }
 
 #headerContainer {
@@ -154,6 +149,8 @@ input {
     border-radius: 1px;
     padding: 2px 4px;
     text-align: center;
+
+    line-height: 1.2em; /*without this height varies between firefox and chrome*/
 }
 
 #emailField {
@@ -234,18 +231,17 @@ input {
 
 #hole-section {
     text-align: center;
-    padding-bottom: 80px;
 }
 
-.scroll #hole-section > h1 {
-    padding-top: 60px;
-}
-
-#hole-section > h1 {
-    color: #222222;
-    height: 50px;
-    font-weight: 700;
+#hole-section h1 {
+    color: #444444;
+    font-weight: 400;
     font-family: 'Play', sans-serif;
+
+    padding-top: 1px;
+    background-color: rgba(255, 255, 255, 0.6);
+
+    margin-top: 40px;
 }
 
 #hole-section p {
@@ -264,13 +260,10 @@ input {
 
 #top {
     text-align: left;
-    border-left: 2px solid #000000;
 }
 
 #bottom {
     text-align: right;
-    border-right: 2px solid #000000;
-
 }
 
 #productBody {
@@ -294,7 +287,10 @@ p {
 }
 
 ol {
-    list-style: inside none lower-alpha;
+    /*do not optimize, fails in chrome*/
+    list-style-type: lower-alpha;
+    list-style-position: inside;
+    list-style-image: none;
     padding: 10px;
 }
 
@@ -340,6 +336,8 @@ section {
 section .text {
     line-height: 1.7;
     word-spacing: 2px;
+    display: table;
+    width: 100%;
 }
 
 #bottleneck-section {
@@ -360,7 +358,7 @@ section em {
 }
 
 #bottle {
-    background: url("/assets/images/bottle_you.png") no-repeat scroll;
+    background: url("/assets/images/bottle_you2.png") no-repeat scroll;
     background-size: contain;
     background-position: center;
     height: 100px;
@@ -368,6 +366,50 @@ section em {
 
 #oneplace-section h2 {
     text-align: left;
+}
+
+#tree {
+    background: url("/assets/images/tree2.png") no-repeat scroll;
+    background-size: contain;
+    background-position: center;
+    height: 200px;
+    margin-top: 20px;
+}
+
+#free-yourself .text {
+    line-height: 200%;
+}
+
+#brain1 {
+    background: url("/assets/images/brain1.png") no-repeat scroll;
+    background-size: contain;
+    background-position: top;
+    height: 150px;
+}
+
+#brain2 {
+    background: url("/assets/images/brain2.png") no-repeat scroll;
+    background-size: contain;
+    background-position: top;
+    height: 250px;
+}
+
+#brain3 {
+    background: url("/assets/images/brain3.png") no-repeat scroll;
+    background-size: contain;
+    background-position: top;
+    height: 150px;
+}
+
+.caption {
+    font-size: 8pt;
+    text-align: center;
+    vertical-align: bottom;
+    display: table-cell;
+}
+
+#free-yourself .text {
+    margin-top: 10px;
 }
 
 footer {
@@ -415,13 +457,28 @@ footer {
     }
 
     section .text {
-        display: block;
         float: left;
         width: 47%;
     }
 
     section .right {
         float: right;
+    }
+
+    #tree {
+        height: 350px;
+    }
+
+    .brain1 {
+        padding-top: 30px;
+    }
+
+    .brain2 {
+        padding-top: 90px;
+    }
+
+    .brain3 {
+        padding-top: 60px;
     }
 }
 
@@ -501,6 +558,22 @@ footer {
         padding: 20px 50px 50px 50px;
     }
 
+    #hole-section {
+        padding-top: 40px;
+    }
+
+    #top {
+        border-left: 2px solid #000000;
+    }
+
+    #bottom {
+        border-right: 2px solid #000000;
+    }
+
+    #tree {
+        height: 500px;
+    }
+
 }
 
 @media screen and (min-width: 750px) {
@@ -527,7 +600,6 @@ footer {
     }
 
     #hole-section > div {
-        margin-top: 40px;
         margin-left: 2%;
         margin-right: 2%;
     }
@@ -541,7 +613,7 @@ footer {
     }
 
     #background {
-        background: url("/assets/images/hole.jpg") no-repeat scroll;
+        background: url("/assets/images/hole2.jpg") no-repeat scroll;
         background-size: cover;
         background-position: top;
     }
@@ -557,7 +629,6 @@ footer {
 
     #headerContainer {
         height: 177px;
-        /*background-color: rgba(117, 79, 36, 0.10);*/
         background-color: rgba(115, 90, 40, 0.20);
 
         -webkit-transition: height 1000ms ease, background-color 1000ms ease;
@@ -608,9 +679,29 @@ footer {
         transition: padding-top 1000ms ease;
     }
 
+    #hole-section {
+        padding-top: 85px;
+    }
+
+    .scroll #hole-section {
+        padding-top: 130px;
+    }
+
     #hole-section > div {
         margin-left: 10%;
         margin-right: 10%;
+    }
+
+    #brain1 {
+        height: 200px;
+    }
+
+    #brain2 {
+        height: 400px;
+    }
+
+    #brain3 {
+        height: 200px;
     }
 }
 
@@ -621,12 +712,8 @@ footer {
         font-weight: 600;
     }
 
-    #hole-section > div {
-        margin-top: 160px;
-    }
-
-    #hole-section {
-        padding-bottom: 270px;
+    #hole-section h1 {
+        margin-top: 180px;
     }
 
     .suede-top {
@@ -635,7 +722,6 @@ footer {
 
     #headerContainer {
         height: 252px;
-        /*background-color: rgba(117, 79, 36, 0.10);*/
         background-color: rgba(115, 90, 40, 0.20);
     }
 
