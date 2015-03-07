@@ -20,7 +20,7 @@ class Application extends Controller with OKResult {
 
 trait OKResult {
   self: Controller =>
-  def getOK(page: String, content: Html, registerMessage: Html = views.html.register()): SimpleResult = {
+  def getOK(page: String, content: Html = views.html.productTail(), registerMessage: Html = views.html.register()): SimpleResult = {
     Ok(views.html.index(page, content, registerMessage))
   }
 }

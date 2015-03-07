@@ -1,8 +1,13 @@
-<div id="unsubscribe">
-    <p>Please enter email address to unsubscribe</p>
+@(message: String = "")
+<section id="unsubscribe">
+    <div class="text">
+        <p>Please enter email address to unsubscribe:</p>
 
-    <form method="GET" action="@routes.RegistrationController.unsubscribe(None)">
-        <input title="to unsubscribe enter email address"
-        name="email" type="email" id="emailField" placeholder="email address"> <input id="submit" type="submit" value="sign up">
-    </form>
-</div>
+        <form method="GET" action="@routes.RegistrationController.unsubscribe(None)">
+            <input title="to unsubscribe enter email address"
+            name="email" type="email" class="emailField" placeholder="email address"> <input class="submit" type="submit" value="unsubscribe">
+        </form>
+        <pre>@message</pre>
+    </div>
+    <div style="clear : both"></div>
+</section>

@@ -49,7 +49,9 @@
                     <div id="first-body-content" class="suede-body-content">
 
                         <div id="signUpUnderBar" class="signUp">
-                        @registerMessage
+                            <div>
+                            @registerMessage
+                            </div>
                         </div>
 
                         @if(page == "product") {
@@ -78,9 +80,59 @@
     </body>
 
     <script>
+    var done = false ;
+    var isHidingEnabled = true ;
     $ ( window ).scroll ( function ( ) {
-    $ ( 'body' ).addClass ( "scroll" ) ;
+    setTimeout ( function ( ) {
+    displayAfterScroll ( ) ;
+    }, 1 ) ;
     } ) ;
+
+    $ ( document ).ready ( function ( ) {
+    $ ( "#signUpUnderBar textarea, #signUpUnderBar input" ).focus ( function ( ) {
+    $ ( "#signUpUnderBar" ).css ( "opacity", "1" ) ;
+    } ) ;
+
+    $ ( ".signUp input" ).focus ( function ( ) {
+    $ ( ".signUp" ).addClass ( "showMessage" ) ;
+    } ) ;
+
+    $ ( ".signUp input, .signUp textarea" ).focus ( function ( ) {
+    isHidingEnabled = false ;
+    } ) ;
+
+    $ ( "section button, #noone" ).click ( function ( ) {
+    displayAfterScroll ( ) ;
+    $ ( ".emailField" ).focus ( ) ;
+    } ) ;
+
+    var c, isVisible = false, p = $ ( '#rightHeader' ) ;
+    if ( p.css ( "visibility" ) != "visible" ) {
+    $ ( document ).on ( 'mousemove', function ( ) {
+    if ( isHidingEnabled ) {
+    if ( ! isVisible ) {
+    p.css ( 'visibility', 'visible' ).hide ( ).fadeIn ( 'slow' ) ;
+    isVisible = true ;
+    }
+    clearTimeout ( c ) ;
+    c = setTimeout ( function ( ) {
+    if ( isHidingEnabled ) {
+    p.fadeOut ( 'slow' ).css ( 'visibility', 'visible' ) ;
+    isVisible = false ;
+    }
+    }, 4000 ) ;
+    } } ) ;
+    }
+
+    } ) ;
+
+    function displayAfterScroll ( ) {
+    if ( ! done ) {
+    $ ( 'body' ).addClass ( "scroll" ) ;
+    done = true ;
+    isHidingEnabled = false ;
+    }
+    }
     </script>
 
         <!-- google analytics -->

@@ -1,11 +1,11 @@
 package controllers
 
-import play.api.mvc.{Controller, Action}
-import javax.inject.{Inject, Singleton, Named}
-import play.api.data.Forms._
-import services.RegistrationService
+import javax.inject.{Inject, Named, Singleton}
+
 import play.api.data.Form
-import play.api.templates.Html
+import play.api.data.Forms._
+import play.api.mvc.{Action, Controller}
+import services.RegistrationService
 
 @Named
 @Singleton
@@ -16,7 +16,14 @@ class RegistrationController extends Controller with OKResult {
 
   val page = "product"
 
-  val emailForm = Form(
+  val registerForm = Form(
+    tuple(
+      "email" -> email,
+      "message" -> text(0, 2000)
+    )
+  )
+
+  val unsubscribeForm = Form(
     single(
       "email" -> email
     )
@@ -25,13 +32,13 @@ class RegistrationController extends Controller with OKResult {
   def register() = Action {
     implicit request =>
 
-      emailForm.bindFromRequest().fold(
+      registerForm.bindFromRequest().fold(
         formWithErrors => {
-          BadRequest(views.html.index(page, views.html.product(), views.html.register()))
+          BadRequest(views.html.index(page, views.html.productTail(), views.html.register()))
         },
         userData => {
-          registrationService.registerEmail(userData)
-          getOK(page, views.html.product(), views.html.registered())
+          registrationService.registerEmail(userData._1, userData._2)
+          getOK(page, views.html.productTail(), views.html.registered())
         })
   }
 
@@ -40,15 +47,15 @@ class RegistrationController extends Controller with OKResult {
 
       emailOpt match {
         case None =>
-          getOK(page, views.html.unsubscribe(), Html(""))
+          getOK("", views.html.unsubscribe())
         case Some(value) =>
-          emailForm.bindFromRequest().fold(
+          unsubscribeForm.bindFromRequest().fold(
             formWithErrors => {
-              BadRequest(views.html.index(page, views.html.unsubscribe(), Html("")))
+              BadRequest(views.html.index("", views.html.unsubscribe(formWithErrors.errors.mkString), views.html.register()))
             },
             email => {
               registrationService.unsubscribeEmail(email)
-              getOK(page, views.html.unsubscribed(email), Html(""))
+              getOK("", views.html.unsubscribed(email))
             })
       }
   }

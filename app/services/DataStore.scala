@@ -1,11 +1,13 @@
 package services
 
-import reactivemongo.api._
-import scala.concurrent.ExecutionContext.Implicits.global
-import javax.inject.{Singleton, Named}
-import play.modules.reactivemongo.json.collection.JSONCollection
-import play.api.libs.json.{Json, JsObject}
+import javax.inject.{Named, Singleton}
+
 import play.api.Logger
+import play.api.libs.json.{JsObject, Json}
+import play.modules.reactivemongo.json.collection.JSONCollection
+import reactivemongo.api._
+
+import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.Future
 
 abstract class DataStore {
@@ -13,7 +15,7 @@ abstract class DataStore {
 
   def find(email: String): Future[Option[JsObject]]
 
-  def save(email: String): Unit
+  def save(email: String, message: String = ""): Unit
 }
 
 @Named
@@ -26,8 +28,9 @@ class DataStoreImpl extends DataStore {
 
   def collection: JSONCollection = db.collection[JSONCollection]("user")
 
-  def save(email: String) {
+  def save(email: String, message: String) {
     val json = Json.obj(
+      "message" -> message,
       "email" -> email,
       "subscribed" -> true,
       "created" -> new java.util.Date().getTime)
