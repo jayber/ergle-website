@@ -82,6 +82,7 @@
     <script>
     var done = false ;
     var isHidingEnabled = true ;
+    var p = $ ( '#rightHeader' ) ;
     $ ( window ).scroll ( function ( ) {
     setTimeout ( function ( ) {
     displayAfterScroll ( ) ;
@@ -106,7 +107,7 @@
     $ ( ".emailField" ).focus ( ) ;
     } ) ;
 
-    var c, isVisible = false, p = $ ( '#rightHeader' ) ;
+    var c, isVisible = false ;
     if ( p.css ( "visibility" ) != "visible" ) {
     $ ( document ).on ( 'mousemove', function ( ) {
     if ( isHidingEnabled ) {
@@ -131,6 +132,7 @@
     $ ( 'body' ).addClass ( "scroll" ) ;
     done = true ;
     isHidingEnabled = false ;
+    p.show ( ) ;
     }
     }
     </script>
